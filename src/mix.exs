@@ -8,9 +8,15 @@ defmodule UmbrellaProject.MixProject do
       deps: deps()
     ]
   end
+  
  def deps do
   [{:logger_json, "~> 3.0"}]
  end
+ 
+ def application do
+  [extra_applications: [:jason, :logger_json]]
+end
+
   # Dependencies listed here are available only for this
   # project and cannot be accessed from applications inside
   # the apps folder.
