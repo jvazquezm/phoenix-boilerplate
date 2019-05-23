@@ -23,3 +23,6 @@ defmodule UmbrellaProject.MixProject do
     ]
   end
 end
+def deps do
+  [{:logger_json, "~> 3.0"}]
+end
