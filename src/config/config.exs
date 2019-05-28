@@ -18,3 +18,4 @@ config :logger_json, :backend,
 #       metadata: [:user_id]
 config :logger,
   backends: [LoggerJSON]
+

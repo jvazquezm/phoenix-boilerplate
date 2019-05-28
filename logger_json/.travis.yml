@@ -1,0 +1,26 @@
+language: elixir
+cache:
+  directories:
+  - deps
+elixir:
+  - 1.7.3
+otp_release:
+  - 21.1
+matrix:
+  include:
+    - otp_release: 20.2
+      elixir: 1.6.4
+    - otp_release: 21.1
+      elixir: 1.7.3
+env:
+  global:
+    - MIX_ENV=test
+script:
+  # Install dependencies
+  - "mix deps.get"
+  # Run all tests except pending ones
+  - "mix test --exclude pending --trace"
+  # Submit code coverage report to Coveralls
+  - "mix coveralls.travis"
+  # Ensure code is formatter
+  - "mix format --check-formatted --dry-run"
